@@ -1,0 +1,90 @@
+:host /deep/ a {
+  &.grey-text {
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.status-container {
+  min-height: 100%;
+}
+
+gridster {
+  background-color: inherit;
+}
+
+.widget-control-button {
+  cursor: pointer;
+  position: fixed;
+  right: 5px;
+  top: 5px;
+  opacity: 0;
+  -webkit-transition: opacity 200ms ease-in;
+  -moz-transition: opacity 200ms ease-in;
+  -ms-transition: opacity 200ms ease-in;
+  -o-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+
+  &:active {
+    transform: scale(1.2);
+  }
+}
+
+.widget-item {
+  &:hover, &:active {
+    .widget-control-button {
+      opacity: 1;
+    }
+  }
+}
+
+.add-widget-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 1000;
+  opacity: 0.4;
+
+  -webkit-transition: opacity 200ms ease-in;
+  -moz-transition: opacity 200ms ease-in;
+  -ms-transition: opacity 200ms ease-in;
+  -o-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+
+  &:hover, &:active {
+    opacity: 1;
+  }
+
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+gridster {
+  &.mobile {
+
+    #HomebridgeStatusWidgetComponent, #SystemInfoWidgetComponent, #WeatherWidgetComponent, #ClockWidgetComponent  {
+      height: unset !important;
+    }
+
+    #CpuWidgetComponent, #MemoryWidgetComponent, #UptimeWidgetComponent {
+      height: unset !important;
+      padding-bottom: 10px;
+    }
+
+    #HapQrcodeWidgetComponent {
+      height: 360px !important;
+    }
+
+    #AccessoriesWidgetComponent {
+      height: unset !important;
+      border: none !important;
+    }
+  }
+
+  #AccessoriesWidgetComponent {
+    background-color: inherit;
+    border: 2px solid rgba(#e0e0e0, 0.5); 
+  }
+}

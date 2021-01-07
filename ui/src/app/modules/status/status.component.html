@@ -1,0 +1,51 @@
+<div class="status-container d-flex flex-column mt-0">
+
+
+  <button *ngIf="consoleStatus === 'up' && $auth.user.admin" (click)="addWidget()"
+    class="btn btn-primary btn-floating add-widget-button"
+    ngbTooltip="{{ (options.draggable.enabled ? 'status.widget.label_add_widget' : 'status.widget.label_layout_locked') | translate }}">
+    <i class="fas fa-plus" [ngClass]="{
+      'fa-plus': options.draggable.enabled,
+      'fa-lock': !options.draggable.enabled
+    }"></i>
+  </button>
+
+
+  <app-spinner *ngIf="consoleStatus === 'down'"></app-spinner>
+
+  <div class="row flex-column flex-grow-1">
+    <!-- <div>
+      <button (click)="addWidget()" class="btn btn-primary">Hi</button>
+    </div> -->
+    <gridster [options]="options" class="flex-grow-1 no-scrollbars" [hidden]="consoleStatus === 'down'"
+      *ngIf="dashboard.length">
+      <ng-container *ngFor="let item of dashboard">
+        <gridster-item *ngIf="!(item.hideOnMobile && page.mobile)" class="widget-item" [item]="item"
+          [id]="item.component">
+          <div class="gridster-item-content">
+            <i class="fas fa-cog widget-control-button primary-text" (click)="manageWidget(item)"></i>
+          </div>
+          <app-widgets [widget]="item" class="d-flex h-100 w-100"></app-widgets>
+        </gridster-item>
+      </ng-container>
+    </gridster>
+  </div>
+
+  <div class="row mb-auto">
+    <div class="col-md-12 text-center mb-3 grey-text">
+      <small>
+        <a class="grey-text" target="_blank" rel="noopener noreferrer"
+          href="https://github.com/oznu/homebridge-config-ui-x">{{ $auth.env.packageName }}
+          v{{ $auth.env.packageVersion }}</a>
+        -
+      </small>
+      <small>
+        <!-- The below copyright notice shall be included and displayed on all copies or substantial portions of this software. -->
+        <a class="grey-text" target="_blank" rel="noopener noreferrer" href="https://github.com/oznu">
+          &copy; 2020 oznu
+        </a>
+        <!-- The above copyright notice shall be included and displayed on all copies or substantial portions of this software. -->
+      </small>
+    </div>
+  </div>
+</div>
