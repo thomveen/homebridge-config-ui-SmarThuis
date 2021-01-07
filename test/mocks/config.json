@@ -1,0 +1,22 @@
+{
+  "bridge": {
+        "manufacturer": "SmarThuis",
+        "model": "HomeBridge",
+        "name": "SmarThuis Hub",
+        "pin": "854-16-050",
+        "port": 58255,
+        "username": "7895422877"
+  },
+  "accessories": [],
+  "platforms": [
+    {
+            "name": "SmarThuis",
+            "port": 8581,
+            "auth": "form",
+            "theme": "amber",
+            "tempUnits": "c",
+            "lang": "nl",
+            "platform": "config"
+    }
+  ]
+}
