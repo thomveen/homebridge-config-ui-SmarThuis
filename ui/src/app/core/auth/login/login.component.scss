@@ -1,0 +1,48 @@
+/**
+ * Default Background Image - snapshot.jpg
+ * Purple Foot Bridge - Free to use. No attribution required.
+ * https://www.pexels.com/photo/architecture-bridge-building-city-220769/
+ */
+
+.login-container {
+  background-color: #f4f4f4;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.login-card {
+  max-width: 500px;
+  background-color: rgba(255, 255, 255, 0.90);
+
+  .form-control:focus {
+    background-color: inherit !important;
+  }
+
+  @media screen and (min-height: 800px){
+    margin-bottom: 12em;
+  }
+}
+
+.login-logo {
+  position: absolute;
+  top: -35%;
+  z-index: 2000;
+  max-width: 450px;
+
+  @media screen and (max-width: 450px){
+    max-width: 320px;
+    top: -25%;
+  }
+
+  @media screen and (max-width: 320px){
+    max-width: 280px;
+  }
+
+  @media screen and (max-height: 450px){
+    display: none;
+  }
+}
