@@ -1,0 +1,19 @@
+- name: FTP Uploader
+  # You may pin to the exact commit or the version.
+  # uses: zinh/ftp-uploader-action@10d256274547c8b84848edf454bfeb0b8a451c41
+  uses: zinh/ftp-uploader-action@v0.4
+  with:
+    # Hostname of ftp server, eg: ftpHostname: ftp.test
+    ftpHostname: zelf3dprint.nl
+    # User of ftp account
+    ftpUsername: u25745p19882 # optional, default is anonymous
+    # Password of ftp account
+    ftpPassword: bp8sre8a # optional, default is 
+    # List files to upload to ftp server
+    files: 
+    # Source folder
+    src: /domains/smarthomebridge/ # optional, default is 
+    # Destination folder
+    dest: # optional, default is /
+    # For debug
+    dryRun: # optional
