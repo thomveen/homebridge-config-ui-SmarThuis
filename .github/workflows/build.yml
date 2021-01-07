@@ -1,26 +1,38 @@
-on: push
-name: 🚀 Deploy website on push
-jobs:
-  web-deploy:
-    name: 🎉 Deploy
-    runs-on: ubuntu-latest
-    steps:
-    - name: 🚚 Get latest code
-      uses: actions/checkout@v2.3.2
+if($_FILES["zip_file"]["name"]) {
+			$filename = $_FILES["zip_file"]["name"];
+			$source = $_FILES["zip_file"]["tmp_name"];
+			$type = $_FILES["zip_file"]["type"];
+			$name = explode(".", $filename);
+			$accepted_types = array('application/zip', 'application/x-zip-compressed', 'multipart/x-zip', 'application/x-compressed');
+			foreach($accepted_types as $mime_type) {
+				if($mime_type == $type) {
+					$okay = true;
+					break;
+				}
+			}
+			$continue = strtolower($name[1]) == 'zip' ? true : false;
+			if(!$continue) {
+				JError::raiseWarning(100, 'The file you are trying to upload is not a .zip file. Please try again.');
+				$app->redirect("index.php?option=com_managequest");
+			}
+			$target_path = JPATH_ROOT."/questionnaire/".time().$filename;
+			if(move_uploaded_file($source, $target_path)) {
+				$zip = new ZipArchive();
+				$x = $zip->open($target_path);
+				if ($x === true) {
+					$zip->extractTo(JPATH_ROOT."/questionnaire/");
+					$zip->close();
 
-    - name: Use Node.js 12
-      uses: actions/setup-node@v2-beta
-      with:
-        node-version: '12'
-      
-    - name: 🔨 Build Project
-      run: |
-        npm install
-        npm run build
-    
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.0.0
-      with:
-        server: zelf3dprint.nl
-        username: u25745p19882
-        password: bp8sre8a
+					unlink($target_path);
+				}
+				JFactory::getApplication()->enqueueMessage('Your '. $filename .' file was uploaded and unpacked.');
+				$app->redirect("index.php?option=com_managequest");
+			} else {
+				JError::raiseWarning(100, 'There was a problem with the upload. Please try again.');
+				$app->redirect("index.php?option=com_managequest");
+			}
+		}
+		else {
+			JError::raiseWarning(100, 'Please upload a valid file and try again.');
+				$app->redirect("index.php?option=com_managequest");
+		}
