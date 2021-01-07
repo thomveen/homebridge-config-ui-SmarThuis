@@ -1,0 +1,31 @@
+.menu-logo {
+  margin-right: 10px;
+  height: 37px;
+
+  @media screen and (max-width: 600px) {
+    height: 27px;
+  }
+  @media screen and (max-width: 991px) {
+    height: 32px;
+  }
+}
+
+.hb-nav-right {
+  @media screen and (max-width: 991px) {
+    float: right;
+    li {
+      margin-left: 20px;
+    }
+  }
+}
+
+.nav-menu-icon {
+  font-size: 20px;
+}
+
+.dropdown-menu {
+  @media screen and (max-width: 600px) {
+    position: fixed !important;
+    top: 28px;
+  }
+}
