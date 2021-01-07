@@ -1,0 +1,655 @@
+{
+  "pluginAlias": "config",
+  "pluginType": "platform",
+  "singular": true,
+  "footerDisplay": "[REST API Documentation <i class='fas fa-external-link-alt'></i>](/swagger)",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Name",
+        "type": "string",
+        "default": "Config",
+        "minLength": 1,
+        "required": true
+      },
+      "port": {
+        "title": "Port",
+        "type": "integer",
+        "default": 8080,
+        "maximum": 65535,
+        "required": true
+      },
+      "auth": {
+        "title": "Homebridge Config UI X Authentication",
+        "type": "string",
+        "default": "form",
+        "oneOf": [
+          {
+            "title": "Require Authentication",
+            "enum": [
+              "form"
+            ]
+          },
+          {
+            "title": "None",
+            "enum": [
+              "none"
+            ]
+          }
+        ],
+        "required": true
+      },
+      "theme": {
+        "title": "UI Theme",
+        "type": "string",
+        "default": "auto",
+        "oneOf": [
+          {
+            "title": "Default (Auto Dark Mode)",
+            "enum": [
+              "auto"
+            ]
+          },
+          {
+            "title": "Red",
+            "enum": [
+              "red"
+            ]
+          },
+          {
+            "title": "Pink",
+            "enum": [
+              "pink"
+            ]
+          },
+          {
+            "title": "Purple",
+            "enum": [
+              "purple"
+            ]
+          },
+          {
+            "title": "Purple - Deep",
+            "enum": [
+              "deep-purple"
+            ]
+          },
+          {
+            "title": "Indigo",
+            "enum": [
+              "indigo"
+            ]
+          },
+          {
+            "title": "Blue",
+            "enum": [
+              "blue"
+            ]
+          },
+          {
+            "title": "Blue - Navi",
+            "enum": [
+              "navi-blue"
+            ]
+          },
+          {
+            "title": "Blue Grey",
+            "enum": [
+              "blue-grey"
+            ]
+          },
+          {
+            "title": "Cyan",
+            "enum": [
+              "cyan"
+            ]
+          },
+          {
+            "title": "Green",
+            "enum": [
+              "green"
+            ]
+          },
+          {
+            "title": "Teal",
+            "enum": [
+              "teal"
+            ]
+          },
+          {
+            "title": "Orange",
+            "enum": [
+              "orange"
+            ]
+          },
+          {
+            "title": "Amber",
+            "enum": [
+              "amber"
+            ]
+          },
+          {
+            "title": "Grey",
+            "enum": [
+              "grey"
+            ]
+          },
+          {
+            "title": "Brown",
+            "enum": [
+              "brown"
+            ]
+          },
+          {
+            "title": "Dark Mode - HomeKit Orange",
+            "enum": [
+              "dark-mode"
+            ]
+          },
+          {
+            "title": "Dark Mode - Red",
+            "enum": [
+              "dark-mode-red"
+            ]
+          },
+          {
+            "title": "Dark Mode - Pink",
+            "enum": [
+              "dark-mode-pink"
+            ]
+          },
+          {
+            "title": "Dark Mode - Purple",
+            "enum": [
+              "dark-mode-purple"
+            ]
+          },
+          {
+            "title": "Dark Mode - Indigo",
+            "enum": [
+              "dark-mode-indigo"
+            ]
+          },
+          {
+            "title": "Dark Mode - Blue",
+            "enum": [
+              "dark-mode-blue"
+            ]
+          },
+          {
+            "title": "Dark Mode - Blue Grey",
+            "enum": [
+              "dark-mode-blue-grey"
+            ]
+          },
+          {
+            "title": "Dark Mode - Green",
+            "enum": [
+              "dark-mode-green"
+            ]
+          },
+          {
+            "title": "Dark Mode - Grey",
+            "enum": [
+              "dark-mode-grey"
+            ]
+          },
+          {
+            "title": "Dark Mode - Brown",
+            "enum": [
+              "dark-mode-brown"
+            ]
+          },
+          {
+            "title": "Dark Mode - Teal",
+            "enum": [
+              "dark-mode-teal"
+            ]
+          },
+          {
+            "title": "Dark Mode - Cyan",
+            "enum": [
+              "dark-mode-cyan"
+            ]
+          }
+        ],
+        "required": true
+      },
+      "restart": {
+        "title": "Restart Command",
+        "type": "string"
+      },
+      "temp": {
+        "title": "Path to OS Temp File",
+        "type": "string"
+      },
+      "tempUnits": {
+        "title": "Temperature Display Units",
+        "type": "string",
+        "required": true,
+        "default": "c",
+        "oneOf": [
+          {
+            "title": "Celsius",
+            "enum": [
+              "c"
+            ]
+          },
+          {
+            "title": "Fahrenheit",
+            "enum": [
+              "f"
+            ]
+          }
+        ]
+      },
+      "lang": {
+        "title": "Language",
+        "type": "string",
+        "default": "auto",
+        "required": true,
+        "oneOf": [
+          {
+            "title": "Automatic (Use Browser Settings)",
+            "enum": [
+              "auto"
+            ]
+          },
+          {
+            "title": "Bulgarian (bg)",
+            "enum": [
+              "bg"
+            ]
+          },
+          {
+            "title": "Catalan (ca)",
+            "enum": [
+              "ca"
+            ]
+          },
+          {
+            "title": "Czech (cs)",
+            "enum": [
+              "cs"
+            ]
+          },
+          {
+            "title": "German (de)",
+            "enum": [
+              "de"
+            ]
+          },
+          {
+            "title": "English (en)",
+            "enum": [
+              "en"
+            ]
+          },
+          {
+            "title": "Spanish (es)",
+            "enum": [
+              "es"
+            ]
+          },
+          {
+            "title": "French (fr)",
+            "enum": [
+              "fr"
+            ]
+          },
+          {
+            "title": "Hungarian (hu)",
+            "enum": [
+              "hu"
+            ]
+          },
+          {
+            "title": "Indonesian (id)",
+            "enum": [
+              "id"
+            ]
+          },
+          {
+            "title": "Italian (it)",
+            "enum": [
+              "it"
+            ]
+          },
+          {
+            "title": "Japanese (ja)",
+            "enum": [
+              "ja"
+            ]
+          },
+          {
+            "title": "Korean (ko)",
+            "enum": [
+              "ko"
+            ]
+          },
+          {
+            "title": "Dutch (nl)",
+            "enum": [
+              "nl"
+            ]
+          },
+          {
+            "title": "Norwegian (no)",
+            "enum": [
+              "no"
+            ]
+          },
+          {
+            "title": "Portuguese (pt-BR)",
+            "enum": [
+              "pt-BR"
+            ]
+          },
+          {
+            "title": "Portuguese (pt)",
+            "enum": [
+              "pt"
+            ]
+          },
+          {
+            "title": "Polish (pl)",
+            "enum": [
+              "pl"
+            ]
+          },
+          {
+            "title": "Russian (ru)",
+            "enum": [
+              "ru"
+            ]
+          },
+          {
+            "title": "Slovenian (sl)",
+            "enum": [
+              "sl"
+            ]
+          },
+          {
+            "title": "Swedish (sv)",
+            "enum": [
+              "sv"
+            ]
+          },
+          {
+            "title": "Turkish (tr)",
+            "enum": [
+              "tr"
+            ]
+          },
+          {
+            "title": "Chinese - Simplified (zh-CN)",
+            "enum": [
+              "zh-CN"
+            ]
+          },
+          {
+            "title": "Chinese - Traditional (zh-TW)",
+            "enum": [
+              "zh-TW"
+            ]
+          }
+        ]
+      },
+      "loginWallpaper": {
+        "title": "Path to Login Wallpaper Image File",
+        "type": "string"
+      },
+      "sudo": {
+        "title": " Use Sudo",
+        "type": "boolean"
+      },
+      "homebridgePackagePath": {
+        "title": "Path To Homebridge Module",
+        "type": "string"
+      },
+      "noFork": {
+        "title": "Do not run the Config UI web server in a seperate process/thread",
+        "type": "boolean"
+      },
+      "host": {
+        "title": "The host ip address to listen on. In most cases this will be '::' or '0.0.0.0'",
+        "type": "string"
+      },
+      "debug": {
+        "title": " Enable / disable debug level logging",
+        "type": "boolean"
+      },
+      "standalone": {
+        "title": "Tell Homebridge the plugin is operating in standalone mode",
+        "type": "boolean"
+      },
+      "sessionTimeout": {
+        "title": "Session Timeout (in seconds)",
+        "type": "integer",
+        "placeholder": 28800,
+        "minimum": 600,
+        "maximum": 86400000
+      },
+      "log": {
+        "type": "object",
+        "properties": {
+          "method": {
+            "title": "Log Method",
+            "type": "string",
+            "oneOf": [
+              {
+                "title": "From File",
+                "enum": [
+                  "file"
+                ]
+              },
+              {
+                "title": "Systemd",
+                "enum": [
+                  "systemd"
+                ]
+              },
+              {
+                "title": "Custom Command",
+                "enum": [
+                  "custom"
+                ]
+              }
+            ]
+          },
+          "path": {
+            "title": "Log File Path",
+            "type": "string"
+          },
+          "service": {
+            "title": "Systemd Service",
+            "type": "string"
+          },
+          "command": {
+            "title": "Custom Command",
+            "type": "string"
+          },
+          "tail": {
+            "type": "string",
+            "description": "Depreciated"
+          },
+          "systemd": {
+            "type": "string",
+            "description": "Depreciated"
+          }
+        }
+      },
+      "ssl": {
+        "title": "SSL Setup",
+        "type": "object",
+        "properties": {
+          "key": {
+            "title": "Path To Private Key",
+            "type": "string"
+          },
+          "cert": {
+            "title": "Path To Certificate",
+            "type": "string"
+          },
+          "pfx": {
+            "title": "Path To PKCS#12 Certificate",
+            "type": "string"
+          },
+          "passphrase": {
+            "title": "PKCS#12 Certificate Passphrase",
+            "type": "string"
+          }
+        }
+      },
+      "accessoryControl": {
+        "title": "Accessory Control Setup",
+        "type": "object",
+        "properties": {
+          "debug": {
+            "title": " Enable / disable debug level logging for accessory control via the web UI",
+            "type": "boolean"
+          },
+          "instanceBlacklist": {
+            "title": "Blacklisted Instances",
+            "type": "array",
+            "items": {
+              "title": "Instance Username",
+              "type": "string",
+              "pattern": "^([A-Fa-f0-9]{2}:){5}[A-Fa-f0-9]{2}$"
+            }
+          }
+        }
+      },
+      "linux": {
+        "title": "Linux Server Commands",
+        "type": "object",
+        "properties": {
+          "shutdown": {
+            "title": "Shutdown Command",
+            "type": "string"
+          },
+          "restart": {
+            "title": "Restart Command",
+            "type": "string"
+          }
+        }
+      },
+      "proxyHost": {
+        "title": "Reverse Proxy Hostname",
+        "type": "string",
+        "pattern": "^[^{}/ :\\\\]+(?::\\d+)?$"
+      },
+      "scheduledBackupPath": {
+        "title": "Scheduled backup destination path",
+        "description": "The full path to where the service should save daily scheduled backups archives",
+        "type": "string"
+      },
+      "scheduledBackupDisable": {
+        "title": "Disable Scheduled Backups",
+        "type": "boolean"
+      },
+      "disableServerMetricsMonitoring": {
+        "title": "Disable Server Metrics Monitoring",
+        "description": "When enabled, the Homebridge UI will not collect or report cpu / memory stats"
+      }
+    }
+  },
+  "layout": [
+    {
+      "type": "flex",
+      "flex-flow": "row wrap",
+      "items": [
+        {
+          "type": "flex",
+          "flex-flow": "column",
+          "items": [
+            "name",
+            "theme"
+          ]
+        },
+        {
+          "type": "flex",
+          "flex-flow": "column",
+          "items": [
+            "port",
+            "tempUnits"
+          ]
+        }
+      ]
+    },
+    {
+      "ref": "log",
+      "type": "fieldset",
+      "expandable": true,
+      "title": "Log Viewer Setup",
+      "items": [
+        "log.method",
+        {
+          "key": "log.path",
+          "description": "Enter the full file path to your log file.",
+          "required": true,
+          "condition": {
+            "functionBody": "return (model.log && model.log.method==='file')"
+          }
+        },
+        {
+          "key": "log.service",
+          "description": "Enter the systemd service name. Defaults to 'homebridge'.",
+          "placeholder": "homebridge",
+          "required": true,
+          "condition": {
+            "functionBody": "return (model.log && model.log.method==='systemd')"
+          }
+        },
+        {
+          "key": "log.command",
+          "description": "This command should stream the logs to stdout.",
+          "required": true,
+          "condition": {
+            "functionBody": "return (model.log && model.log.method==='custom')"
+          }
+        }
+      ]
+    },
+    {
+      "ref": "advanced",
+      "type": "fieldset",
+      "expandable": true,
+      "title": "Advanced",
+      "items": [
+        "sudo",
+        {
+          "key": "debug",
+          "condition": {
+            "functionBody": "return (model.debug === true)"
+          }
+        },
+        "lang",
+        "auth",
+        {
+          "key": "sessionTimeout",
+          "type": "number"
+        },
+        {
+          "key": "restart",
+          "description": "If no restart command is set the process will terminate with a non-zero exit code."
+        },
+        {
+          "key": "proxyHost",
+          "placeholder": "eg. example.com:8443",
+          "description": "When running behind a reverse proxy you may need to enter the hostname you use to access the UI."
+        },
+        {
+          "type": "help",
+          "helpvalue": "<label class='control-label'>Custom Login Wallpaper</label><br><p class='help-block'>Custom login wallpaper can be set by adding a 'ui-wallpaper.jpg' file to your Homebridge storage directory, or by providing the full path to the .jpg file below:</p>"
+        },
+        {
+          "key": "loginWallpaper",
+          "notitle": true,
+          "placeholder": "eg. /home/pi/mywallpaper.jpg"
+        }
+      ]
+    }
+  ]
+}
